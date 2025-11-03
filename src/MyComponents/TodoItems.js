@@ -1,13 +1,32 @@
-export const TodoItems = ({ todo ,onDelete}) => {
-  // console.log("Received todo:", todo); // Add this line
+import React from 'react';
+import { FaTrash } from "react-icons/fa";
 
+export const TodoItems = ({ todo, onDelete, onDone }) => {
   return (
-    <div>
-      <h4>{todo.title}</h4>
-      <p>{todo.desc}</p>
-      <button className="btn btn-danger btn-sm" onClick={()=>{onDelete(todo)}}
-      >Delete</button>
-      <hr />
+    <div className="card mb-3 shadow-sm">
+      <div className="card-body d-flex justify-content-between align-items-center">
+        <div>
+          <h5 className="card-title mb-1">{todo.title}</h5>
+          <p className="card-text text-muted mb-0">{todo.desc}</p>
+        </div>
+
+        <div className="d-flex align-items-center gap-3">
+          <input
+            type="checkbox"
+            className="form-check-input"
+            checked={todo.done === "Checked"} // ✅ Explicit boolean check
+            onChange={() => onDone(todo)}
+            title="Mark as done"
+          />
+          <button
+            className="btn btn-outline-danger btn-sm"
+            onClick={() => onDelete(todo)}
+            title="Delete"
+          >
+            <FaTrash />
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

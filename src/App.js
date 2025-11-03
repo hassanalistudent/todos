@@ -23,46 +23,72 @@ function App() {
     localStorage.setItem("todos_list", JSON.stringify(todos_list));
   };
 
+  const onDone = (todo) => {
+  const updatedTodos = todos_list.map((item) => {
+    if (item.srNo === todo.srNo) {
+      const updatedItem = {
+        ...item,
+        done: item.done === "Unchecked" ? "Checked" : "Unchecked",
+      };
+      console.log("✅ Updated todo:", updatedItem); // Log the updated item
+      return updatedItem;
+    }
+    return item;
+  });
+
+  setTodos_list(updatedTodos);
+  console.log("📋 Full updated list:", updatedTodos); // Log the entire updated list
+};
+
   const addTodo = (title, desc) => {
     let srno;
-    console.log("I am onDelete of todo", title, desc);
     if (todos_list.length === 0) {
       srno = 0;
+    } else {
+      srno = todos_list[todos_list.length - 1].srNo + 1;
     }
-    else {
-      srno = todos_list[todos_list.length - 1].srNo + 1
-    }
+
     const myTodo = {
       srNo: srno,
       title: title,
       desc: desc,
-    }
+      done: "Unchecked", // ✅ new key added
+    };
+
     setTodos_list([...todos_list, myTodo]);
     console.log(myTodo);
   };
-
 
   const [todos_list, setTodos_list] = useState(initTodo);
   useEffect(() => {
     localStorage.setItem("todos_list", JSON.stringify(todos_list));
   }, [todos_list])
 
-  return (
-    <Router>
+ return (
+  <Router>
+    <div className="d-flex flex-column min-vh-100">
       <Header title="My Todos App" searchBar={false} />
-      <Routes>
-        <Route path="/" element={
-          <>
-            <AddTodo addTodo={addTodo} />
-            <Todos todos={todos_list} onDelete={onDelete} />
-          </>
-        } />
-        <Route path="/about" element={<About />} />
-        <Route path="*" element={<h2>404 - Page Not Found</h2>} />
-      </Routes>
+
+      <main className="flex-grow-1">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <AddTodo addTodo={addTodo} />
+                <Todos todos={todos_list} onDelete={onDelete} onDone={onDone} />
+              </>
+            }
+          />
+          <Route path="/about" element={<About />} />
+          <Route path="*" element={<h2>404 - Page Not Found</h2>} />
+        </Routes>
+      </main>
+
       <Footer />
-    </Router>
-  );
+    </div>
+  </Router>
+);
 
 }
 export default App;
