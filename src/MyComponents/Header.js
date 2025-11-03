@@ -8,11 +8,12 @@ export default function Header(props) {
     top: 0,
     width: "100%",
     zIndex: 1000,
+    background: "rgba(240, 240, 240, 0.4)" // Softer gray
   };
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary" style={headerStyle}>
+      <nav className="navbar navbar-expand-lg " style={headerStyle}>
         <div className="container-fluid">
           <Link className="navbar-brand active" to="/">{props.title}</Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

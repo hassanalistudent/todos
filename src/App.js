@@ -69,7 +69,7 @@ function App() {
     <div className="d-flex flex-column min-vh-100">
       <Header title="My Todos App" searchBar={false} />
 
-      <main className="flex-grow-1">
+      <main className="flex-grow-1 pt-5 pt-md-5 pt-lg-6">
         <Routes>
           <Route
             path="/"

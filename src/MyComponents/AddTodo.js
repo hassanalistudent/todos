@@ -1,4 +1,7 @@
 import React, { useState } from 'react'
+const addTodoStyle = {
+  
+  };
 
 export const AddTodo = (props) => {
     const [title, setTitle] = useState("");
@@ -17,7 +20,7 @@ export const AddTodo = (props) => {
     }
 
     return (
-        <div className='container my-3'>
+        <div className='container my-3 'style={addTodoStyle}>
             <h3 className=' my-3'>Add a Todo</h3>
             <form onSubmit={submit}>
                 <div className="mb-3">
