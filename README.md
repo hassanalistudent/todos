@@ -23,3 +23,12 @@ The app was developed and tested locally to practice React fundamentals.
 1. Clone the repository
    ```bash
    git clone https://github.com/hassanalistudent/todos](https://github.com/hassanalistudent/todos.git
+
+   # Navigate into the project folder
+   cd todos
+   
+   # Install backend dependencies
+   npm install
+    
+   # For full stack
+   npm start
