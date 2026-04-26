@@ -22,4 +22,4 @@ The app was developed and tested locally to practice React fundamentals.
 ## Installation
 1. Clone the repository
    ```bash
-   git clone https://github.com/hassanalistudent/todos
+   git clone https://github.com/hassanalistudent/todos](https://github.com/hassanalistudent/todos.git
