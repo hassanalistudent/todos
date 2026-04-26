@@ -17,7 +17,7 @@ The app was developed and tested locally to practice React fundamentals.
 - Deployment: Localhost (future plan: deploy to Netlify/Heroku)
 
 ## Screenshots
-![Todo List Screenshot](screenshot1.png)
+![Todo List Screenshot](image.png)
 
 ## Installation
 1. Clone the repository
